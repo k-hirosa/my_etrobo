@@ -1,0 +1,26 @@
+# ETrobocon2025_ShonanCreators
+湘南クリエイターズの2025年ETロボコン制御ソフトのリポジトリ
+
+# 実装方法
+各難所ごとにブランチを切り、SceneManagerフォルダに実装すること
+
+# ライブラリ
+
+## SwitchSceneManager
+難所切り替えとその下のシーン管理のインターフェースが入っている
+### 難所切り替えのやり方
+- Swtich/SceneManagersに各難所（ラインオブスタクル、ダブルループ、スマートキャリー）のフォルダが用意してあるため、ここに各難所のシーン管理クラスを書く。SceneManager.hのSceneManagerクラスを継承して作ること。
+- SwitchSceneManager.cppにシーン管理クラスをインクルードし、インスタンスを作る
+- runSceneメソッドを実装し、SwitchSceneManager.cppのrunSceneManagerの自分の難所の場所でrunSceneを実行、戻り値がtrueならnextSceneManagerを実行する（テスト用サンプルコード参照）
+
+自身の担当の難所だけ実装、テストしている場合は前のシーンをnextSceneManagerで飛ばすこと（コメントアウトした状態で書いてある）
+
+各シーン、タスクなどの処理はSwtich/SceneManagersに各難所フォルダ内に作ること
+初期では最初の200サイクルが過ぎると次の難所に移行するTestSceneManager.hというサンプルコードが入っている
+
+## HAL
+各種センサ、モータのspikeapiのラッパー、自己位置推定などをまとめている
+ファイル、クラス名は○○Wrapperに統一
+
+## InformationProcessing
+情報処理層のソースコードを実装する場所
