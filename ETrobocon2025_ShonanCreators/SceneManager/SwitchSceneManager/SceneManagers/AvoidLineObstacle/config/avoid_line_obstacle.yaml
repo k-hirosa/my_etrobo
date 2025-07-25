@@ -1,0 +1,21 @@
+robot:
+  tread_half: 0.1
+
+pid_controller:
+  kv: 1.0
+  v_min: 0.0
+  v_max: 0.3
+
+obstacle_map:
+  merge_threshold: 0.2
+  known_obstacles:
+    - [1.0, 1.0]
+    - [2.0, 2.0]
+
+pid_controller:
+  kp: 1.0
+  ki: 0.0
+  kd: 0.0
+
+local_goal_manager:
+  goal_file: goals.yaml

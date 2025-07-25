@@ -1,0 +1,9 @@
+controller:
+  kp: 1.0              # Pゲイン
+  ki: 0.0              # Iゲイン
+  kd: 0.05             # Dゲイン
+  output_limit: 1.0    # 出力の上限値（±）
+  tread: 0.15          # 車輪間距離[m]
+  linear_velocity: 0.1 # 並進速度[m/s]
+  dt: 0.1              # ループ周期[s]
+
