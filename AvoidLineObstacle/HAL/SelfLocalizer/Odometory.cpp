@@ -1,6 +1,5 @@
 #include "Odometry.h"
 #include <cmath>
-#include <chrono>
 
 Odometry::Odometry(float wheel_radius, Encoder* leftEncoder, Encoder* rightEncoder,
                     const RobotPose& initial_pose, Clock* clock)
@@ -23,8 +22,8 @@ void Odometry::update(float omega_gyro, float theta_gyro) {
     float omega_R = (rotationAngle_right - m_rotationAngle_right_prev) / dt;
 
     //左右輪の直進速度
-    float v_L = r * omega_L;
-    float v_R = r * omega_R;
+    float v_L = m_wheel_radius * omega_L;
+    float v_R = m_wheel_radius * omega_R;
 
     //車体中心の並進速度
     float v = (v_L + v_R) / 2.0;
